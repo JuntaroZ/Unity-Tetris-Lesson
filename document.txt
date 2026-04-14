@@ -1,44 +1,54 @@
 ■内容
+【15:05 ～ 15:20】
 １．L字やT字などのテトリミノを作ろう！
 
-
+【15:20 ～ 15:35】
 ２．テトリミノをランダムで出現させよう！
 ・SpawnMono.cs を Hierarchy へ
 ・Inspectorにて
 　┗Z座標をBackGroundよりも手前の 9 にする(0, 10, 9)
 　┗１．で作ったMinosをすべて追加
-Code:
-    int randomIndex = Random.Range(0, Minos.Length);
 
+・GitHub Copilotでコード生成を指示してみる
+・SpawnMino.csを選んだ状態で「Minos最大数でランダム整数コードを生成」と指示
+=======================================================
+        int index = Random.Range(0, Minos.Length);
+        Instantiate(Minos[index], transform.position, Quaternion.identity);
+=======================================================
+
+【15:35 ～ 15:50】
 ３．テトリミノを自動で落下させよう！
-・MinosのすべてのMinoに、Monos.csを付与（AddComponent）
-・GameManager.cs を Hierarchy へ
-・Inspectorにて
-　┗ Auto Fall Data List(0, 1)
-　
-// 自動落下コード
-        if (gameManager.GetAutoFallTime() > 0 && Time.time - previousTime > gameManager.GetAutoFallTime())
-        {
+・Minos のすべての Mino に、Monos.cs を付与（AddComponent）
+・GameManager.cs を Hierarchy へ（時間管理）
+　┗Inspector: Auto Fall Data List(0, 1)
+・Minos.cs 「自動落下コードをここに追加」の最後でリターンすると
+　AI補完コードが出るかも？
+=======================================================
             addVector = new Vector3(0, -1, 0);
             moveOn = true;
             previousTime = Time.time;
-        }
+=======================================================
 
-
+【15:50 ～ 16:00】
 ４．テトリミノをキーで移動・回転させよう！
-・Inspectorにて
-　┗Mino Config List で +
+・すべての Monos の Prefab でキー設定を追加する
+　┗Inspector: Mino Config List で +
 
+【16:20-16:25】
+５．スコアによりテトリミノの落下速度を変化させよう！
 
-５．サウンド（SE）を鳴らそう！
+【16:15-16:20】
+６．スコア＆ゲームオーバーを表示しよう！
 
+【16:00-16:15】
+７．サウンド（SE）を鳴らそう！
+・SfxPlayer.cs を Hierarchy へ
+　┗既存のSEを設定する
+・Unity AssetStoreでサンプルSEさがす＆DL
+　┗DLしたSEを設定する
+　・mai voice free
 
-６．スコアを表示しよう！
-
-
-７．スコアによりテトリミノの落下速度を変化させよう！
-
-
+【16:20-16:30】
 ８．エフェクトを付けてみよう！
 ・EffectフォルダにあるBurstParticleSystemをHierarchyへ
 ・エフェクトのPlay再生
@@ -47,7 +57,3 @@ Code:
 　・Bloomにチェック
 　　┗Threshold(閾値)=0.9、Intensity(強さ)=2.0、Scatter(広さ)=0.7
 ・エフェクトのPlay再生(光るようになる)
-
-９．ゲームオーバーを表示しよう！
-
-その他、プログラム解説など行います！

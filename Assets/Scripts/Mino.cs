@@ -92,12 +92,9 @@ public class Mino : MonoBehaviour
             }      
         }
 
-        // 自動落下コードをここに！
         if (gameManager.GetAutoFallTime() > 0 && Time.time - previousTime > gameManager.GetAutoFallTime())
         {
-            addVector = new Vector3(0, -1, 0);
-            moveOn = true;
-            previousTime = Time.time;
+            // 自動落下コードをここに追加
         }
 
         if (moveOn)
@@ -153,70 +150,6 @@ public class Mino : MonoBehaviour
                 }
             }
         }
-/*
-        // 左矢印キーで左に動く
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && ValidMovement(-1, 0) == EnResult.enSuccess)
-        {
-            transform.position += new Vector3(-1, 0, 0);
-        }
-        // 右矢印キーで右に動く
-        if (Input.GetKeyDown(KeyCode.RightArrow) && ValidMovement(+1, 0) == EnResult.enSuccess)
-        {
-            transform.position += new Vector3(1, 0, 0);
-        }
-        // 自動で下に移動させつつ、下矢印キーでも移動する
-        if ((Input.GetKey(KeyCode.DownArrow) && Time.time-previousTime > downMoveIntervalTime) || Time.time-previousTime >= 1.0f) 
-        {
-            if (ValidMovement(0, -1)== EnResult.enSuccess) {
-                transform.position += new Vector3(0, -1, 0);
-                previousTime = Time.time;
-            } 
-            else
-            {
-                this.enabled = false;
-                if (AddToGrid() == false)
-                {
-                    // ゲームオーバー
-                    gameManager.SetGameOver();
-                    Debug.Log("Game Over");
-                    return;
-                }
-
-                bool isDelete = CheckDeleteLines();
-                if (isDelete == false)
-                {
-                    FindFirstObjectByType<SfxPlayer>().PlaySfx(0); // Mino地面着地の音を再生
-                    // 新しいminoを生成
-                    FindFirstObjectByType<SpawnMino>().NewMino();
-                }
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            // minoを上矢印キーを押して回転させる
-            transform.RotateAround(transform.TransformPoint(rotationPoint), rotationXYZ, +rotationAngle);
-            var result = ValidMovement(0, 0);
-            if (result == EnResult.enInvalidBottom || result == EnResult.enInvalidGrid)
-            {
-                // 回転させた後に、もし下に移動できない場合は、回転を元に戻す
-                transform.RotateAround(transform.TransformPoint(rotationPoint), rotationXYZ, -rotationAngle);
-                return;
-            }
-            // 両側の壁に埋まってたら修正を繰り返す
-            foreach (Transform children in transform)
-            {
-                if (ValidMovement(0, 0) == EnResult.enInvalidLeft)
-                {
-                    transform.position += new Vector3(1, 0, 0);
-                }
-                if (ValidMovement(0, 0) == EnResult.enInvalidRight)
-                {
-                    transform.position += new Vector3(-1, 0, 0);
-                }
-            }
-            FindFirstObjectByType<SfxPlayer>().PlaySfx(1); // Mino回転の音を再生
-        }
-*/
     }
     EnResult ValidMovement(int x, int y)
     {

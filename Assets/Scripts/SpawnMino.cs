@@ -13,7 +13,8 @@ public class SpawnMino : MonoBehaviour
 
     public void NewMino() 
     {
-        // ランダムに生成するコードは？
-        Instantiate(Minos[0], transform.position, Quaternion.identity);
+        int index = 0;
+        // ランダム生成するコードをここに追加
+        Instantiate(Minos[index], transform.position, Quaternion.identity);
     }
 }
