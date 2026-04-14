@@ -5,8 +5,10 @@
 ２．テトリミノをランダムで出現させよう！
 ・SpawnMono.cs を Hierarchy へ
 ・Inspectorにて
-　┗Z座標をBackGroundよりも手前の 9 にする
+　┗Z座標をBackGroundよりも手前の 9 にする(0, 10, 9)
 　┗１．で作ったMinosをすべて追加
+Code:
+    int randomIndex = Random.Range(0, Minos.Length);
 
 ３．テトリミノを自動で落下させよう！
 ・MinosのすべてのMinoに、Monos.csを付与（AddComponent）
@@ -14,6 +16,14 @@
 ・Inspectorにて
 　┗ Auto Fall Data List(0, 1)
 　
+// 自動落下コード
+        if (gameManager.GetAutoFallTime() > 0 && Time.time - previousTime > gameManager.GetAutoFallTime())
+        {
+            addVector = new Vector3(0, -1, 0);
+            moveOn = true;
+            previousTime = Time.time;
+        }
+
 
 ４．テトリミノをキーで移動・回転させよう！
 ・Inspectorにて

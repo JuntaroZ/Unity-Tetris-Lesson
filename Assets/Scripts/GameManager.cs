@@ -20,14 +20,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        if (scoreText != null) 
-        {
-            scoreText.text = "SCORE:0";
-        }
-        if (gameOverText != null) 
-        {
-            gameOverText.gameObject.SetActive(false);
-        }
+        if (scoreText)scoreText.text = "SCORE:0";
+        if (gameOverText)gameOverText.gameObject.SetActive(false);
     }
     void Update()
     {
@@ -36,17 +30,11 @@ public class GameManager : MonoBehaviour
     public void AddScore(int addScore)
     {
         score += addScore;
-        if (scoreText != null) 
-        {
-            scoreText.text = "SCORE:" + score.ToString();
-        }
+        if (scoreText)scoreText.text = "SCORE:" + score.ToString();
     }
     public void SetGameOver()
     {
-        if (gameOverText != null) 
-        {
-            gameOverText.gameObject.SetActive(true);
-        }
+        if (gameOverText)gameOverText.gameObject.SetActive(true);
     }
 
     public float GetAutoFallTime()

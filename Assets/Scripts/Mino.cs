@@ -68,13 +68,14 @@ public class Mino : MonoBehaviour
         foreach (MinoConfig config in minoConfigList)
         {
             addVector = config.addVector;
-            rotateOn = config.rotate;
+            rotateOn = false;
             if (config.repeatKey)
             {
                 if (Input.GetKey(dictKeyMap[config.keyType]) && Time.time - previousTime > gameManager.repeatFallTime)
                 {
                     moveOn = true;      
                     previousTime = Time.time;
+                    rotateOn = config.rotate;
                 }
             } 
             else
@@ -82,6 +83,7 @@ public class Mino : MonoBehaviour
                 if (Input.GetKeyDown(dictKeyMap[config.keyType]))
                 {
                     moveOn = true;      
+                    rotateOn = config.rotate;
                 }
             }
             if (moveOn == true)
@@ -89,7 +91,8 @@ public class Mino : MonoBehaviour
                 break;
             }      
         }
-        // 自動落下
+
+        // 自動落下コードをここに！
         if (gameManager.GetAutoFallTime() > 0 && Time.time - previousTime > gameManager.GetAutoFallTime())
         {
             addVector = new Vector3(0, -1, 0);
@@ -122,7 +125,7 @@ public class Mino : MonoBehaviour
                         transform.position += new Vector3(-1, 0, 0);
                     }
                 }
-                sfxPlayer.PlaySfx(SfxPlayer.SfxType.Rotate); // Mino回転の音を再生
+                sfxPlayer?.PlaySfx(SfxPlayer.SfxType.Rotate); // Mino回転の音を再生
             }
 
             var resultMove = ValidMovement((int)addVector.x, (int)addVector.y);
@@ -144,7 +147,7 @@ public class Mino : MonoBehaviour
                 bool isDelete = CheckDeleteLines();
                 if (isDelete == false)
                 {
-                    sfxPlayer.PlaySfx(SfxPlayer.SfxType.Landing); // Mino地面着地の音を再生
+                    sfxPlayer?.PlaySfx(SfxPlayer.SfxType.Landing); // Mino地面着地の音を再生
                     // 新しいminoを生成
                     FindFirstObjectByType<SpawnMino>().NewMino();
                 }
@@ -276,7 +279,7 @@ public class Mino : MonoBehaviour
             if (HasLine(i))
             {
                 FindFirstObjectByType<ParticlePlayer>().Play(new Vector3(0, i - height / 2, 10));
-                sfxPlayer.PlaySfx(SfxPlayer.SfxType.Delete);// Mino消去の音を再生
+                sfxPlayer?.PlaySfx(SfxPlayer.SfxType.Delete);// Mino消去の音を再生
                 DeleteLine(i);
                 deleteLineList.Add(i);
 
