@@ -3,13 +3,21 @@
 
 
 ２．テトリミノをランダムで出現させよう！
-SpawnMono.cs を Hierarky へ
+・SpawnMono.cs を Hierarchy へ
+・Inspectorにて
+　┗Z座標をBackGroundよりも手前の 9 にする
+　┗１．で作ったMinosをすべて追加
 
+３．テトリミノを自動で落下させよう！
+・MinosのすべてのMinoに、Monos.csを付与（AddComponent）
+・GameManager.cs を Hierarchy へ
+・Inspectorにて
+　┗ Auto Fall Data List(0, 1)
+　
 
-３．テトリミノをキーで移動・回転させよう！
-
-
-４．テトリミノを自動で落下させよう！
+４．テトリミノをキーで移動・回転させよう！
+・Inspectorにて
+　┗Mino Config List で +
 
 
 ５．サウンド（SE）を鳴らそう！
@@ -22,7 +30,13 @@ SpawnMono.cs を Hierarky へ
 
 
 ８．エフェクトを付けてみよう！
-
+・EffectフォルダにあるBurstParticleSystemをHierarchyへ
+・エフェクトのPlay再生
+・Global Volume追加
+　・InspectorのNewボタンでProfile追加、Additiveボタン
+　・Bloomにチェック
+　　┗Threshold(閾値)=0.9、Intensity(強さ)=2.0、Scatter(広さ)=0.7
+・エフェクトのPlay再生(光るようになる)
 
 ９．ゲームオーバーを表示しよう！
 
