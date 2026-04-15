@@ -291,3 +291,10 @@ public class Mino : MonoBehaviour
         }
     }
 }
+
+/*
+            // 自動落下コード
+            moveOn = true;
+            previousTime = Time.time;
+            addVector = new Vector3(0, -1, 0);
+*/
