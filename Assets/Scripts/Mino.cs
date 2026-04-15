@@ -44,7 +44,7 @@ public class Mino : MonoBehaviour
 
     private GameManager gameManager;
     private SfxPlayer sfxPlayer;
-
+    private ParticlePlayer particlePlayer;
     enum EnResult
     {
         enSuccess,
@@ -58,6 +58,7 @@ public class Mino : MonoBehaviour
     {
         gameManager = FindFirstObjectByType<GameManager>();
         sfxPlayer = FindFirstObjectByType<SfxPlayer>();
+        particlePlayer = FindFirstObjectByType<ParticlePlayer>();
     }
     void Update()
     {
@@ -71,7 +72,7 @@ public class Mino : MonoBehaviour
             rotateOn = false;
             if (config.repeatKey)
             {
-                if (Input.GetKey(dictKeyMap[config.keyType]) && Time.time - previousTime > gameManager.repeatFallTime)
+                if (Input.GetKey(dictKeyMap[config.keyType]) && Time.time - previousTime > gameManager?.repeatFallTime)
                 {
                     moveOn = true;      
                     previousTime = Time.time;
@@ -92,7 +93,7 @@ public class Mino : MonoBehaviour
             }      
         }
 
-        if (gameManager.GetAutoFallTime() > 0 && Time.time - previousTime > gameManager.GetAutoFallTime())
+        if (gameManager?.GetAutoFallTime() > 0 && Time.time - previousTime > gameManager?.GetAutoFallTime())
         {
             // 自動落下コードをここに追加
         }
@@ -136,7 +137,7 @@ public class Mino : MonoBehaviour
                 if (AddToGrid() == false)
                 {
                     // ゲームオーバー
-                    gameManager.SetGameOver();
+                    gameManager?.SetGameOver();
                     Debug.Log("Game Over");
                     return;
                 }
@@ -211,21 +212,21 @@ public class Mino : MonoBehaviour
         {
             if (HasLine(i))
             {
-                FindFirstObjectByType<ParticlePlayer>().Play(new Vector3(0, i - height / 2, 10));
+                particlePlayer?.Play(new Vector3(0, i - height / 2, 10));
                 sfxPlayer?.PlaySfx(SfxPlayer.SfxType.Delete);// Mino消去の音を再生
                 DeleteLine(i);
                 deleteLineList.Add(i);
 
                 if (addScore < 400)
                 {
-                    sfxPlayer.PlaySfx(SfxPlayer.SfxType.AddScore);// Mino消去の音を再生
+                    sfxPlayer?.PlaySfx(SfxPlayer.SfxType.AddScore);// Mino消去の音を再生
                 }
                 else
                 {
-                    sfxPlayer.PlaySfx(SfxPlayer.SfxType.AddScoreMax);// Mino消去の音を再生
+                    sfxPlayer?.PlaySfx(SfxPlayer.SfxType.AddScoreMax);// Mino消去の音を再生
                 }
 
-                gameManager.AddScore(addScore);
+                gameManager?.AddScore(addScore);
                 addScore += 100; // 同時にラインを消すと、スコアがどんどん上がるようにする
             }
         }

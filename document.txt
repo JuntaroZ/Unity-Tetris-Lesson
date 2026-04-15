@@ -1,8 +1,8 @@
 ■内容
-【15:05 ～ 15:20】
+【15:10 ～ 15:20】
 １．L字やT字などのテトリミノを作ろう！
 
-【15:20 ～ 15:35】
+【15:20 ～ 15:30】
 ２．テトリミノをランダムで出現させよう！
 ・SpawnMono.cs を Hierarchy へ
 ・Inspectorにて
@@ -16,9 +16,9 @@
         Instantiate(Minos[index], transform.position, Quaternion.identity);
 =======================================================
 
-【15:35 ～ 15:50】
+【15:30 ～ 15:40】
 ３．テトリミノを自動で落下させよう！
-・Minos のすべての Mino に、Monos.cs を付与（AddComponent）
+・すべての Mino に、Monos.cs を付与（AddComponent）
 ・GameManager.cs を Hierarchy へ（時間管理）
 　┗Inspector: Auto Fall Data List(0, 1)
 ・Minos.cs 「自動落下コードをここに追加」の最後でリターンすると
@@ -29,18 +29,28 @@
             previousTime = Time.time;
 =======================================================
 
-【15:50 ～ 16:00】
+【15:40 ～ 15:50】
 ４．テトリミノをキーで移動・回転させよう！
 ・すべての Monos の Prefab でキー設定を追加する
 　┗Inspector: Mino Config List で +
 
-【16:20-16:25】
-５．スコアによりテトリミノの落下速度を変化させよう！
+【15:50 ～ 16:00】
+５．スコア＆ゲームオーバーを表示しよう！
+・Hierarchy に 3D - Text Mesh Pro を配置（スコア用）
+　┗ Import Text Mesh ウインドウが出るのでインポート
+　┗ 画面上部に移動(Pos Z = 1)
+　┗ サイズ調整（Scale 0.3, 0.3, 1）
 
-【16:15-16:20】
-６．スコア＆ゲームオーバーを表示しよう！
+・Hierarchy に 3D - Text Mesh Pro を配置（ゲームオーバー用）
+　┗ Import Text Mesh ウインドウが出るのでインポート
+　┗ Pos Z 移動(Pos Z = 1)
+　┗ サイズ調整（Scale 0.3, 0.3, 1）
 
-【16:00-16:15】
+　
+【16:05 ～ 16:10】
+６．スコアによりテトリミノの落下速度を変化させよう！
+
+【16:10 ～ 16:20】
 ７．サウンド（SE）を鳴らそう！
 ・SfxPlayer.cs を Hierarchy へ
 　┗既存のSEを設定する
@@ -48,7 +58,7 @@
 　┗DLしたSEを設定する
 　・mai voice free
 
-【16:20-16:30】
+【16:20 ～ 16:30】
 ８．エフェクトを付けてみよう！
 ・EffectフォルダにあるBurstParticleSystemをHierarchyへ
 ・エフェクトのPlay再生
