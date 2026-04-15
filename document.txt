@@ -49,8 +49,8 @@
 【16:05 ～ 16:10】
 ６．スコアによりテトリミノの落下速度を変化させよう！
 ・GameManagerにスコア設定追加
-　┗500 で 0.5
-　┗1000 で 0.2
+　┗Inspector: Auto Fall Data List(300, 0.5)
+　┗Inspector: Auto Fall Data List(500, 0.1)
 
 【16:10 ～ 16:20】
 ７．サウンド（SE）を鳴らそう！
