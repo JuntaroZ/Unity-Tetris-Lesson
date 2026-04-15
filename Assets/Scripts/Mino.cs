@@ -212,7 +212,7 @@ public class Mino : MonoBehaviour
         {
             if (HasLine(i))
             {
-                particlePlayer?.Play(new Vector3(0, i - height / 2, 10));
+                particlePlayer?.Play(new Vector3(0, i - height / 2, -10));
                 sfxPlayer?.PlaySfx(SfxPlayer.SfxType.Delete);// Mino消去の音を再生
                 DeleteLine(i);
                 deleteLineList.Add(i);

@@ -55,14 +55,17 @@
 【16:10 ～ 16:20】
 ７．サウンド（SE）を鳴らそう！
 ・SfxPlayer.cs を Hierarchy へ
+・Audio SourceをCreate
+　┗Inspector: Audio Sourceを設定
 　┗既存のSEを設定する
 ・Unity AssetStoreでサンプルSEさがす＆DL
 　┗DLしたSEを設定する
-　・mai voice free
+　・mai voice freeなど
 
 【16:20 ～ 16:30】
 ８．エフェクトを付けてみよう！
-・EffectフォルダにあるBurstParticleSystemをHierarchyへ
+・ParticleSystem.cs を Hierarchy へ
+　┗Inspector: EffectフォルダにあるBurstParticleSystem
 ・エフェクトのPlay再生
 ・Global Volume追加
 　・InspectorのNewボタンでProfile追加、Additiveボタン
