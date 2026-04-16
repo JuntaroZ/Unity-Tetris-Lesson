@@ -96,6 +96,9 @@ public class Mino : MonoBehaviour
         if (gameManager?.GetAutoFallTime() > 0 && Time.time - previousTime > gameManager?.GetAutoFallTime())
         {
             // 自動落下コードをここに追加
+            addVector = new Vector3(0, -1, 0);
+            moveOn = true;
+            previousTime = Time.time;
         }
 
         if (moveOn)
@@ -291,10 +294,3 @@ public class Mino : MonoBehaviour
         }
     }
 }
-
-/*
-            // 自動落下コード
-            moveOn = true;
-            previousTime = Time.time;
-            addVector = new Vector3(0, -1, 0);
-*/
