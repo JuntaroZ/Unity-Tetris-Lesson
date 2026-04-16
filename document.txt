@@ -66,9 +66,9 @@
 ８．エフェクトを付けてみよう！
 ・ParticleSystem.cs を Hierarchy へ
 　┗Inspector: EffectフォルダにあるBurstParticleSystem
-・エフェクトのPlay再生
 ・Global Volume追加
-　・InspectorのNewボタンでProfile追加、Additiveボタン
+　・InspectorのNewボタン
+　　┗ Add Override ボタン
+　　┗ Post-process
 　・Bloomにチェック
 　　┗Threshold(閾値)=0.9、Intensity(強さ)=2.0、Scatter(広さ)=0.7
-・エフェクトのPlay再生(光るようになる)
