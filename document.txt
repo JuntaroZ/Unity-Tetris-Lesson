@@ -1,41 +1,53 @@
 ■内容
-【15:10 ～ 15:20】
-１．L字やT字などのテトリミノを作ろう！
+あらかじめ SampleScene に切り替えておく
 
-【15:20 ～ 15:30】
-２．テトリミノをランダムで出現させよう！
+【15:05 ～ 15:20】
+１．Tmino を出現させよう！
+・ゲームの再生ボタンについて
 ・SpawnMono.cs を Hierarchy へ
 ・Inspectorにて
 　┗Z座標をBackGroundよりも手前の 9 にする(0, 10, 9)
-　┗１．で作ったMinosをすべて追加
+　┗Tmino を追加
+・ゲームの再生ボタンで再度実行
 
-・GitHub Copilotでコード生成を指示してみる
-・SpawnMino.csを選んだ状態で「Minos最大数でランダム整数コードを生成」と指示
-=======================================================
-        int index = Random.Range(0, Minos.Length);
-        Instantiate(Minos[index], transform.position, Quaternion.identity);
-=======================================================
-
-【15:30 ～ 15:40】
-３．テトリミノを自動で落下させよう！
-・すべての Mino に、Monos.cs を付与（AddComponent）
+【15:20 ～ 15:35】
+２．Tmino を自動で落下させよう！
+・Tmino に、Monos.cs を付与（AddComponent）
 ・GameManager.cs を Hierarchy へ（時間管理）
 　┗Inspector: Auto Fall Data List(0, 1)
-・Minos.cs 「自動落下コードをここに追加」の最後でリターンすると
-　AI補完コードが出るかも？
+・コード解説
+　┗Mino.cs をダブルクリックして VSCode を開く
 =======================================================
+98行目
             addVector = new Vector3(0, -1, 0);
             moveOn = true;
             previousTime = Time.time;
 =======================================================
 
-【15:40 ～ 15:50】
-４．テトリミノをキーで移動・回転させよう！
-・すべての Monos の Prefab でキー設定を追加する
+【15:35 ～ 15:50】
+３．Tミノをキーで移動・回転させよう！
+・Tmino の Prefab でキー設定を追加する
 　┗Inspector: Mino Config List で +
 
+【15:50 ～ 16:05】
+４．L字やJ字などのテトリミノを作ろう！
+・Tmino を 6個複製する
+・□の座標変更と色変更を行う
+
+５．テトリミノをランダムで出現させよう！
+・Hierarchy にある SpawnMino をクリック
+・すべての Minos を追加する
+・SpawnMino.cs をダブルクックしてVSCodeを開き SpawnMino.cs 選んだ状態にする
+・GitHub Copilotでコード生成を指示してみる
+　┗「Minos最大数でランダム整数コードを生成」と指示
+・コード解説
+=======================================================
+        int index = Random.Range(0, Minos.Length);
+        Instantiate(Minos[index], transform.position, Quaternion.identity);
+=======================================================
+
 【15:50 ～ 16:00】
-５．スコア＆ゲームオーバーを表示しよう！
+６．スコア＆ゲームオーバーを表示しよう！
 ・Hierarchy に 3D - Text Mesh Pro を配置（スコア用）
 　┗ Import Text Mesh ウインドウが出るのでインポート
 　┗ 画面上部に移動(Pos Z = 1)
@@ -47,13 +59,13 @@
 　┗ サイズ調整（Scale 0.3, 0.3, 1）
 
 【16:05 ～ 16:10】
-６．スコアによりテトリミノの落下速度を変化させよう！
+７．スコアによりテトリミノの落下速度を変化させよう！
 ・GameManagerにスコア設定追加
 　┗Inspector: Auto Fall Data List(300, 0.5)
 　┗Inspector: Auto Fall Data List(500, 0.1)
 
 【16:10 ～ 16:20】
-７．サウンド（SE）を鳴らそう！
+８．サウンド（SE）を鳴らそう！
 ・SfxPlayer.cs を Hierarchy へ
 ・Audio SourceをCreate
 　┗Inspector: Audio Sourceを設定
@@ -63,7 +75,7 @@
 　・mai voice freeなど
 
 【16:20 ～ 16:30】
-８．エフェクトを付けてみよう！
+９．エフェクトを付けてみよう！
 ・ParticleSystem.cs を Hierarchy へ
 　┗Inspector: EffectフォルダにあるBurstParticleSystem
 ・Global Volume追加
