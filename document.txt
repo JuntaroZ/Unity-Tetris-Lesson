@@ -63,6 +63,7 @@
 ・GameManagerにスコア設定追加
 　┗Inspector: Auto Fall Data List(300, 0.5)
 　┗Inspector: Auto Fall Data List(500, 0.1)
+・コード解説
 
 【16:10 ～ 16:20】
 ８．サウンド（SE）を鳴らそう！
