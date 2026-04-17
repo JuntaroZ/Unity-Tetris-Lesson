@@ -13,8 +13,9 @@ public class SpawnMino : MonoBehaviour
 
     public void NewMino() 
     {
-        int index = 0;
-        // ランダム生成するコードをここに追加
+        int index = 0;// ランダム生成するコードをここに追加
         Instantiate(Minos[index], transform.position, Quaternion.identity);
     }
 }
+
+//         int index = Random.Range(0, Minos.Length);
