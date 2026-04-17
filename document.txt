@@ -50,13 +50,13 @@
 ６．スコア＆ゲームオーバーを表示しよう！
 ・Hierarchy に 3D - Text Mesh Pro を配置（スコア用）
 　┗ Import Text Mesh ウインドウが出るのでインポート
-　┗ 画面上部に移動(Pos Z = 1)
+　┗ 画面上部に移動
 　┗ サイズ調整（Scale 0.3, 0.3, 1）
 
 ・Hierarchy に 3D - Text Mesh Pro を配置（ゲームオーバー用）
 　┗ Import Text Mesh ウインドウが出るのでインポート
-　┗ Pos Z 移動(Pos Z = 1)
 　┗ サイズ調整（Scale 0.3, 0.3, 1）
+・コード解説
 
 【16:05 ～ 16:10】
 ７．スコアによりテトリミノの落下速度を変化させよう！
