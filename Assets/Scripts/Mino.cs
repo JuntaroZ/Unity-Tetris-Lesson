@@ -32,7 +32,7 @@ public class Mino : MonoBehaviour
         {KeyType.UpArrow, KeyCode.UpArrow},
     };
    // ステージの大きさ
-    private const int width = 10;
+    private const int width = 11;
     private const int height = 20;
     private Vector3 rotationPoint = new Vector3(0.0f, 0.0f, 0.0f); // minoの回転の中心点
     private Vector3 rotationXYZ = new Vector3(0.0f, 0.0f, 1.0f); // minoはZ軸回転
@@ -168,7 +168,7 @@ public class Mino : MonoBehaviour
             {
                 return EnResult.enInvalidLeft;
             }
-            if (roundX > +width/2 - 1)
+            if (roundX > +width/2)
             {
                 return EnResult.enInvalidRight;
             }

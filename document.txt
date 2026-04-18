@@ -1,7 +1,6 @@
 ■内容
 あらかじめ SampleScene に切り替えておく
 
-【15:05 ～ 15:20】
 １．Tmino を出現させよう！
 ・ゲームの再生ボタンについて
 ・SpawnMono.cs を Hierarchy へ
@@ -10,7 +9,6 @@
 　┗Tmino を追加
 ・ゲームの再生ボタンで再度実行
 
-【15:20 ～ 15:35】
 ２．Tmino を自動で落下させよう！
 ・Tmino に、Monos.cs を付与（AddComponent）
 ・GameManager.cs を Hierarchy へ（時間管理）
@@ -24,12 +22,10 @@
             previousTime = Time.time;
 =======================================================
 
-【15:35 ～ 15:50】
 ３．Tミノをキーで移動・回転させよう！
 ・Tmino の Prefab でキー設定を追加する
 　┗Inspector: Mino Config List で +
 
-【15:50 ～ 16:05】
 ４．L字やJ字などのテトリミノを作ろう！
 ・Tmino を 6個複製する
 ・□の座標変更と色変更を行う
@@ -46,7 +42,6 @@
         Instantiate(Minos[index], transform.position, Quaternion.identity);
 =======================================================
 
-【15:50 ～ 16:00】
 ６．スコア＆ゲームオーバーを表示しよう！
 ・Hierarchy に 3D - Text Mesh Pro を配置（スコア用）
 　┗ Import Text Mesh ウインドウが出るのでインポート
@@ -58,14 +53,12 @@
 　┗ サイズ調整（Scale 0.3, 0.3, 1）
 ・コード解説
 
-【16:05 ～ 16:10】
 ７．スコアによりテトリミノの落下速度を変化させよう！
 ・GameManagerにスコア設定追加
 　┗Inspector: Auto Fall Data List(300, 0.5)
 　┗Inspector: Auto Fall Data List(500, 0.1)
 ・コード解説
 
-【16:10 ～ 16:20】
 ８．サウンド（SE）を鳴らそう！
 ・SfxPlayer.cs を Hierarchy へ
 ・Audio SourceをCreate
@@ -75,7 +68,6 @@
 　┗DLしたSEを設定する
 　・mai voice freeなど
 
-【16:20 ～ 16:30】
 ９．エフェクトを付けてみよう！
 ・ParticleSystem.cs を Hierarchy へ
 　┗Inspector: EffectフォルダにあるBurstParticleSystem
